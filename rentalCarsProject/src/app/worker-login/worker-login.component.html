@@ -1,0 +1,28 @@
+<div style="padding:20%;">
+
+<h1>worker</h1>
+<br>
+
+<form>
+
+<mat-form-field>
+<input matInput type="text" #UserName placeholder="enter UserName">
+</mat-form-field>
+<br><br>
+<mat-form-field>
+<input matInput type="text" #Password placeholder="enter password!">
+</mat-form-field>
+<br>
+
+</form>
+
+<input type="button" (click)="login(UserName.value,Password.value)" value="login">
+<br>
+<h3 *ngIf="!wuspass" style="color:red;"> UserName or password isnt vaild!</h3>
+
+<!-- <a [routerLink]="['/home-page',{{Token1}}]">go to home page</a> -->
+
+<br>
+<a [routerLink]="['/home-page']">go to home page</a>
+
+</div>

@@ -1,0 +1,41 @@
+<div style="padding:20%;">
+
+<input type="text" [(ngModel)]="searchText">
+<div *ngIf="avilableCars">
+  <ul *ngFor="let car of avilableCars | carsFilter : searchText">
+  
+      <li>
+          <img [src]="car.img" height="100" width="100" />
+     </li>
+  
+  <li>
+  producer: {{car.producer}}
+  </li>
+  <li>
+      model: {{car.model}}
+  </li>
+  <li>
+      cost per day: {{car.cost_per_day}}
+  </li>
+  <li>
+      financial_penalty: {{car.financial_penalty}}
+  </li>
+  <li>
+      production_year: {{car.production_year}}
+  </li>
+  <li>
+      gear: {{car.gear}}
+  </li>
+  <br>
+  <button (click)="returnCar(car)">return car</button>
+
+  </ul>
+  <br>
+  <br>
+ 
+  </div>
+
+  <br>
+  <button (click)="logOut()">log out</button>
+
+  </div>

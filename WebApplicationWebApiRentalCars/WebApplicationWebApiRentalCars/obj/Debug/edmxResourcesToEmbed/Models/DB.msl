@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rentalCarsModelStoreContainer" CdmEntityContainer="rentalCarsEntities">
+    <EntitySetMapping Name="cars_model_available">
+      <EntityTypeMapping TypeName="rentalCarsModel.cars_model_available">
+        <MappingFragment StoreEntitySet="cars model available">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="producer" ColumnName="producer" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="cost_per_day" ColumnName="cost per day" />
+          <ScalarProperty Name="financial_penalty" ColumnName="financial penalty" />
+          <ScalarProperty Name="production_year" ColumnName="production year" />
+          <ScalarProperty Name="gear" ColumnName="gear" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="car_number" ColumnName="car number" />
+          <ScalarProperty Name="banking_adress" ColumnName="banking_adress" />
+          <ScalarProperty Name="banking_longitued" ColumnName="banking_longitued" />
+          <ScalarProperty Name="banking_name" ColumnName="banking_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cars_not_avalable">
+      <EntityTypeMapping TypeName="rentalCarsModel.cars_not_avalable">
+        <MappingFragment StoreEntitySet="cars not avalable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="producer" ColumnName="producer" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="cost_per_day" ColumnName="cost per day" />
+          <ScalarProperty Name="fainancial_penalty" ColumnName="fainancial penalty" />
+          <ScalarProperty Name="production_year" ColumnName="production year" />
+          <ScalarProperty Name="gear" ColumnName="gear" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="car_number" ColumnName="car number" />
+          <ScalarProperty Name="banking_adrress" ColumnName="banking_adrress" />
+          <ScalarProperty Name="banking_longitude" ColumnName="banking_longitude" />
+          <ScalarProperty Name="banking_name" ColumnName="banking_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="manneger">
+      <EntityTypeMapping TypeName="rentalCarsModel.manneger">
+        <MappingFragment StoreEntitySet="manneger">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="rentalCarsModel.orders">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="producer" ColumnName="producer" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="cost_per_day" ColumnName="cost_per_day" />
+          <ScalarProperty Name="financial_penalty" ColumnName="financial_penalty" />
+          <ScalarProperty Name="production_year" ColumnName="production_year" />
+          <ScalarProperty Name="gear" ColumnName="gear" />
+          <ScalarProperty Name="banking_address" ColumnName="banking_address" />
+          <ScalarProperty Name="banking_longitude" ColumnName="banking_longitude" />
+          <ScalarProperty Name="bamking_name" ColumnName="bamking_name" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="start_renting_date" ColumnName="start renting date" />
+          <ScalarProperty Name="returning_date" ColumnName="returning date" />
+          <ScalarProperty Name="actually_returning_date" ColumnName="actually returning date" />
+          <ScalarProperty Name="car_number" ColumnName="car_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="rentalCarsModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="img" ColumnName="img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workers">
+      <EntityTypeMapping TypeName="rentalCarsModel.Workers">
+        <MappingFragment StoreEntitySet="Workers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="first_name" ColumnName="first name" />
+          <ScalarProperty Name="last_name" ColumnName="last name" />
+          <ScalarProperty Name="worker_id" ColumnName="worker id" />
+          <ScalarProperty Name="user_name" ColumnName="user name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="img" ColumnName="img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,101 @@
+
+<div style="padding:10%;">
+
+<div class="containerOne">
+
+<h1>your list of rental!</h1>
+<div *ngIf="selectedCar">
+     
+<ul *ngFor="let car of selectedCar">
+        <div class="card"  style="width: 18rem;background-color: gray;">
+    <li>
+        <img *ngIf="car.img" [src]="car.img" class="card-img-top" height="100" width="100" />
+   </li>
+   <div class="card-body">
+<li>
+producer: {{car.producer}}
+</li>
+<li>
+    model: {{car.model}}
+</li>
+<li>
+    cost per day: {{car.cost_per_day}}
+</li>
+<li>
+    financial_penalty: {{car.financial_penalty}}
+</li>
+<li>
+    production_year: {{car.production_year}}
+</li>
+<li>
+    gear: {{car.gear}}
+</li>
+<br>
+<button (click)="removeFromList()">remove from list</button>
+</div>
+</div>
+
+</ul>
+<br>
+<br>
+<button (click)="rent()"> go to rent page! </button>
+</div>
+
+</div>
+
+<h1>search for cars to rent!</h1>
+
+
+<br>
+<br>
+<form>
+<mat-form-field>
+ <input matInput placeholder="search for vihcle by car number!" type="text" #searchText>
+</mat-form-field>
+</form>
+<br><br>
+
+<div *ngIf="cars" class="containerTwo">
+
+<ul *ngFor="let i of cars | carsFilter : searchText.value">
+        <div class="card"  style="width: 18rem;">
+    <li>
+        <img *ngIf="i.img" [src]="i.img" class="card-img-top"  height="100" width="100" />
+   </li>
+   <div class="card-body">
+<li >
+producer: {{i.producer}}
+</li>
+<li>
+    model: {{i.model}}
+</li>
+<li>
+    cost per day: {{i.cost_per_day}}
+</li>
+<li>
+    financial_penalty: {{i.financial_penalty}}
+</li>
+<li>
+    production_year: {{i.production_year}}
+</li>
+<li>
+    gear: {{i.gear}}
+    <br>
+
+</li>
+<li>
+    car number {{i.car_number}}
+</li>
+<br>
+<button (click)="addToList(i)">add to list</button>
+</div>
+</div>
+
+</ul>
+
+</div>
+
+<br>
+<button (click)="logOut()">log out</button>
+
+</div>

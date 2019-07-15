@@ -1,0 +1,30 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 30%;
+  }
+
+  .password-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .password-container > * {
+    width: 30%;
+  }
+  
+  .password-right-align {
+    text-align: right;
+  }
+  
+  input.password-right-align::-webkit-outer-spin-button,
+  input.password-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.password-right-align {
+    -moz-appearance: textfield;
+  }

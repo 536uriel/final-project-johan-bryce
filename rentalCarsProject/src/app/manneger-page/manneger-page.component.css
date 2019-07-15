@@ -1,0 +1,26 @@
+.editWorkers{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.editUsers{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.editCars{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.returnCar{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.example-container{
+  
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+}

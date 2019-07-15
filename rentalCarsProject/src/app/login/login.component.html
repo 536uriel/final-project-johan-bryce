@@ -1,0 +1,32 @@
+<div class="container" style="padding:20%;">
+    <br>
+    <h1>login!</h1>
+    <br>
+
+    <form [formGroup]="profileForm">
+
+        <mat-form-field>
+<input matInput formControlName="name" #UserName placeholder="enter user name">
+<br>
+</mat-form-field>
+
+<br><br>
+<mat-form-field>
+<input matInput formControlName="pass" #Password placeholder="enter password">
+<br>
+</mat-form-field>
+
+<br>
+
+<button mat-button (click)="login(UserName.value,Password.value)">login</button>
+<br>
+</form>
+<h3 *ngIf="!uspass" style="color:red">user name or password isnt correct!</h3>
+
+<!-- <a [routerLink]="['/home-page',{{Token1}}]">go to home page</a> -->
+
+<br>
+<a [routerLink]="['/home-page']">go to home page</a>
+
+</div>
+

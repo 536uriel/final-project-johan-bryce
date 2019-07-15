@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rentalCarsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cars model available">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="producer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="model" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="cost per day" Type="int" Nullable="false" />
+    <Property Name="financial penalty" Type="int" Nullable="false" />
+    <Property Name="production year" Type="date" Nullable="false" />
+    <Property Name="gear" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="img" Type="nvarchar(max)" />
+    <Property Name="car number" Type="int" Nullable="false" />
+    <Property Name="banking_adress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="banking_longitued" Type="int" Nullable="false" />
+    <Property Name="banking_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cars not avalable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="producer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="model" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="cost per day" Type="int" Nullable="false" />
+    <Property Name="fainancial penalty" Type="int" Nullable="false" />
+    <Property Name="production year" Type="date" Nullable="false" />
+    <Property Name="gear" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="img" Type="nvarchar(max)" />
+    <Property Name="car number" Type="int" Nullable="false" />
+    <Property Name="banking_adrress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="banking_longitude" Type="int" Nullable="false" />
+    <Property Name="banking_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="manneger">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="producer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cost_per_day" Type="int" Nullable="false" />
+    <Property Name="financial_penalty" Type="int" Nullable="false" />
+    <Property Name="production_year" Type="date" Nullable="false" />
+    <Property Name="gear" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="banking_address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="banking_longitude" Type="int" Nullable="false" />
+    <Property Name="bamking_name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="userId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="start renting date" Type="date" />
+    <Property Name="returning date" Type="date" />
+    <Property Name="actually returning date" Type="date" />
+    <Property Name="car_number" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BDate" Type="date" />
+    <Property Name="gender" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="img" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Workers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="last name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="worker id" Type="int" Nullable="false" />
+    <Property Name="user name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="img" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="rentalCarsModelStoreContainer">
+    <EntitySet Name="cars model available" EntityType="Self.cars model available" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cars not avalable" EntityType="Self.cars not avalable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="manneger" EntityType="Self.manneger" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

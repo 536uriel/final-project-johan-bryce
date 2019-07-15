@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="rentalCarsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cars model available">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="producer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="model" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="cost per day" Type="int" Nullable="false" />
+          <Property Name="financial penalty" Type="int" Nullable="false" />
+          <Property Name="production year" Type="date" Nullable="false" />
+          <Property Name="gear" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="img" Type="nvarchar(max)" />
+          <Property Name="car number" Type="int" Nullable="false" />
+          <Property Name="banking_adress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="banking_longitued" Type="int" Nullable="false" />
+          <Property Name="banking_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cars not avalable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="producer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="model" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="cost per day" Type="int" Nullable="false" />
+          <Property Name="fainancial penalty" Type="int" Nullable="false" />
+          <Property Name="production year" Type="date" Nullable="false" />
+          <Property Name="gear" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="img" Type="nvarchar(max)" />
+          <Property Name="car number" Type="int" Nullable="false" />
+          <Property Name="banking_adrress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="banking_longitude" Type="int" Nullable="false" />
+          <Property Name="banking_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="manneger">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="producer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cost_per_day" Type="int" Nullable="false" />
+          <Property Name="financial_penalty" Type="int" Nullable="false" />
+          <Property Name="production_year" Type="date" Nullable="false" />
+          <Property Name="gear" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="banking_address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="banking_longitude" Type="int" Nullable="false" />
+          <Property Name="bamking_name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="userId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="start renting date" Type="date" />
+          <Property Name="returning date" Type="date" />
+          <Property Name="actually returning date" Type="date" />
+          <Property Name="car_number" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BDate" Type="date" />
+          <Property Name="gender" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="img" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="last name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="worker id" Type="int" Nullable="false" />
+          <Property Name="user name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="img" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="rentalCarsModelStoreContainer">
+          <EntitySet Name="cars model available" EntityType="Self.cars model available" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cars not avalable" EntityType="Self.cars not avalable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manneger" EntityType="Self.manneger" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="rentalCarsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cars_model_available">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="producer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="cost_per_day" Type="Int32" Nullable="false" />
+          <Property Name="financial_penalty" Type="Int32" Nullable="false" />
+          <Property Name="production_year" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="gear" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="car_number" Type="Int32" Nullable="false" />
+          <Property Name="banking_adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="banking_longitued" Type="Int32" Nullable="false" />
+          <Property Name="banking_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cars_not_avalable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="producer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="cost_per_day" Type="Int32" Nullable="false" />
+          <Property Name="fainancial_penalty" Type="Int32" Nullable="false" />
+          <Property Name="production_year" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="gear" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="car_number" Type="Int32" Nullable="false" />
+          <Property Name="banking_adrress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="banking_longitude" Type="Int32" Nullable="false" />
+          <Property Name="banking_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="manneger">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="producer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cost_per_day" Type="Int32" Nullable="false" />
+          <Property Name="financial_penalty" Type="Int32" Nullable="false" />
+          <Property Name="production_year" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="gear" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="banking_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="banking_longitude" Type="Int32" Nullable="false" />
+          <Property Name="bamking_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_renting_date" Type="DateTime" Precision="0" />
+          <Property Name="returning_date" Type="DateTime" Precision="0" />
+          <Property Name="actually_returning_date" Type="DateTime" Precision="0" />
+          <Property Name="car_number" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BDate" Type="DateTime" Precision="0" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="worker_id" Type="Int32" Nullable="false" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="rentalCarsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cars_model_available" EntityType="Self.cars_model_available" />
+          <EntitySet Name="cars_not_avalable" EntityType="Self.cars_not_avalable" />
+          <EntitySet Name="manneger" EntityType="Self.manneger" />
+          <EntitySet Name="orders" EntityType="Self.orders" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="rentalCarsModelStoreContainer" CdmEntityContainer="rentalCarsEntities">
+          <EntitySetMapping Name="cars_model_available">
+            <EntityTypeMapping TypeName="rentalCarsModel.cars_model_available">
+              <MappingFragment StoreEntitySet="cars model available">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="producer" ColumnName="producer" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="cost_per_day" ColumnName="cost per day" />
+                <ScalarProperty Name="financial_penalty" ColumnName="financial penalty" />
+                <ScalarProperty Name="production_year" ColumnName="production year" />
+                <ScalarProperty Name="gear" ColumnName="gear" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="car_number" ColumnName="car number" />
+                <ScalarProperty Name="banking_adress" ColumnName="banking_adress" />
+                <ScalarProperty Name="banking_longitued" ColumnName="banking_longitued" />
+                <ScalarProperty Name="banking_name" ColumnName="banking_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cars_not_avalable">
+            <EntityTypeMapping TypeName="rentalCarsModel.cars_not_avalable">
+              <MappingFragment StoreEntitySet="cars not avalable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="producer" ColumnName="producer" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="cost_per_day" ColumnName="cost per day" />
+                <ScalarProperty Name="fainancial_penalty" ColumnName="fainancial penalty" />
+                <ScalarProperty Name="production_year" ColumnName="production year" />
+                <ScalarProperty Name="gear" ColumnName="gear" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="car_number" ColumnName="car number" />
+                <ScalarProperty Name="banking_adrress" ColumnName="banking_adrress" />
+                <ScalarProperty Name="banking_longitude" ColumnName="banking_longitude" />
+                <ScalarProperty Name="banking_name" ColumnName="banking_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manneger">
+            <EntityTypeMapping TypeName="rentalCarsModel.manneger">
+              <MappingFragment StoreEntitySet="manneger">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="rentalCarsModel.orders">
+              <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="producer" ColumnName="producer" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="cost_per_day" ColumnName="cost_per_day" />
+                <ScalarProperty Name="financial_penalty" ColumnName="financial_penalty" />
+                <ScalarProperty Name="production_year" ColumnName="production_year" />
+                <ScalarProperty Name="gear" ColumnName="gear" />
+                <ScalarProperty Name="banking_address" ColumnName="banking_address" />
+                <ScalarProperty Name="banking_longitude" ColumnName="banking_longitude" />
+                <ScalarProperty Name="bamking_name" ColumnName="bamking_name" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="start_renting_date" ColumnName="start renting date" />
+                <ScalarProperty Name="returning_date" ColumnName="returning date" />
+                <ScalarProperty Name="actually_returning_date" ColumnName="actually returning date" />
+                <ScalarProperty Name="car_number" ColumnName="car_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="rentalCarsModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="BDate" ColumnName="BDate" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workers">
+            <EntityTypeMapping TypeName="rentalCarsModel.Workers">
+              <MappingFragment StoreEntitySet="Workers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="first_name" ColumnName="first name" />
+                <ScalarProperty Name="last_name" ColumnName="last name" />
+                <ScalarProperty Name="worker_id" ColumnName="worker id" />
+                <ScalarProperty Name="user_name" ColumnName="user name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

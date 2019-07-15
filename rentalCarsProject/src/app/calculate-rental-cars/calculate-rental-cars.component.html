@@ -1,0 +1,101 @@
+
+<div style="padding:20%;">
+
+<ul *ngFor="let i of selectedCars">
+    <div class="card" style="width: 18rem;">
+  <li>
+      <img *ngIf="i.img" class="card-img-top" [src]="i.img" height="100" width="100" />
+ </li>
+ <div class="card-body">
+<li>
+producer: {{i.producer}}
+</li>
+<li>
+  model: {{i.model}}
+</li>
+<li>
+  cost per day: {{i.cost_per_day}}
+</li>
+<li>
+  financial_penalty: {{i.financial_penalty}}
+</li>
+<li>
+  production_year: {{i.production_year}}
+</li>
+<li>
+  gear: {{i.gear}}
+</li>
+<br>
+</div>
+</div>
+
+</ul>
+
+<h1>total payment per day:
+    {{total}}
+</h1>
+<br>
+<input type="range" maxlength="100" minlength="1" value="1" [(ngModel)]="slider_value">
+<br>
+rent for {{slider_value}} days!
+<br>
+<button (click)="rent()">rent</button>
+
+<br>
+<br>
+
+<button (click)="logOut()">log out</button>
+<br>
+<button (click)="goToCheckList()">go to check list</button>
+
+
+<br>
+<h1>your order list:</h1>
+<br>
+<ul *ngFor="let i of order">
+    <div class="card" style="width: 18rem;">
+  <li>
+      <img *ngIf="i.img" class="card-img-top" [src]="i.img" height="100" width="100" />
+ </li>
+ <div class="card-body">
+<li>
+producer: {{i.producer}}
+</li>
+<li>
+  model: {{i.model}}
+</li>
+<li>
+  cost per day: {{i.cost_per_day}}
+</li>
+<li>
+  financial_penalty: {{i.financial_penalty}}
+</li>
+<li>
+  production_year: {{i.production_year}}
+</li>
+<li>
+  gear: {{i.gear}}
+</li>
+
+<li>
+    banking_address: {{i.banking_adress}}
+  </li>
+
+  <li>
+      banking_longitude: {{i.banking_longitude}}
+    </li>
+
+    <li>
+        banking_name: {{i.banking_name}}
+      </li>
+      <li>
+        start_renting_date: {{i.start_renting_date}}
+      </li>
+      
+<br>
+</div>
+</div>
+
+</ul>
+
+</div>

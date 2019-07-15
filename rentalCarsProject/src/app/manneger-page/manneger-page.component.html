@@ -1,0 +1,993 @@
+<div style="padding:20%;">
+<br>
+
+<button mat-button type="button" data-toggle="modal" data-target="#add_worker">
+   add new worker
+  </button>
+
+  <br>  <br>
+
+  <button mat-button type="button" data-toggle="modal" data-target="#add_user">
+    add new user
+  </button>
+  <br>  <br>
+
+  <button mat-button type="button" data-toggle="modal" data-target="#edit_worker">
+    edit worker
+  </button>
+
+  <br>  <br>
+
+  <button mat-button type="button" data-toggle="modal" data-target="#edit_user">
+    edit user
+  </button>
+  
+  <br>  <br>
+
+  <button mat-button type="button" data-toggle="modal" data-target="#edit_cars_availble">
+    edit cars available
+  </button>
+
+  <br>  <br>
+
+  <button mat-button type="button" data-toggle="modal" data-target="#edit_cars_not">
+    edit cars not available
+  </button>
+
+  <br>  <br>
+
+  <button mat-button type="button" data-toggle="modal" data-target="#add_new_car">
+    add new car
+  </button>
+
+  <br>  <br>
+
+  <button mat-button type="button" data-toggle="modal" data-target="#return_car">
+    return car to be available
+  </button>
+
+  <br>
+  <br>
+
+
+  <button type="button" mat-button data-toggle="modal" data-target="#editOrders">
+    edit orders
+  </button>
+  
+
+
+  <div class="modal fade" id="add_worker" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         
+
+            <h1>add worker</h1>
+<br>
+
+<div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your first name" #wfirst_name required>
+    
+    </mat-form-field>
+    </div>
+<br>
+
+<div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your last name" #wlast_name required>
+    
+    </mat-form-field>
+    </div>
+<br>
+
+<div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your Id" #wId required>
+    
+    </mat-form-field>
+    </div>
+<br>
+
+
+
+<div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your userName" #wuserName required>
+    
+    </mat-form-field>
+    </div>
+
+<br>
+<div class="password-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your password" #wpassword [formControl]="wpass" required [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="whide = !whide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="whide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+      <mat-error *ngIf="pass.invalid">{{wgetErrorMessage("password")}}</mat-error>
+    </mat-form-field>
+    </div>
+  
+<br>
+
+<br>
+
+image
+<input type="file" (change)="wreadURL2($event)"> לא חובה
+<br>
+
+<br>
+
+<input type="button" value="add" (click)='registerNewWorker(wfirst_name.value,wlast_name.value,
+wId.value,wuserName.value,wuserName.value,wpassword.value)'>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<br>
+
+<div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        
+            <h1>add user</h1>
+            <br>
+            <div class="example-container">
+                <mat-form-field>
+                  <input matInput placeholder="Enter your full name" #fullName required>
+                
+                </mat-form-field>
+                </div>
+            <br>
+            
+            <div class="example-container">
+                <mat-form-field>
+                  <input matInput placeholder="Enter your Id" #Id required>
+                
+                </mat-form-field>
+                </div>
+            <br>
+            
+            
+            
+            <div class="example-container">
+                <mat-form-field>
+                  <input matInput placeholder="Enter your userName" #userName required>
+                
+                </mat-form-field>
+                </div>
+            <br>
+         
+            <br>
+            <div class="password-container">
+                <mat-form-field>
+                  <input matInput placeholder="Enter your password" #password [formControl]="pass" required [type]="hide ? 'password' : 'text'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                  <mat-error *ngIf="pass.invalid">{{getErrorMessage("password")}}</mat-error>
+                </mat-form-field>
+                </div>
+              <br>
+            
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a birth date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #BDate></mat-datepicker>
+              </mat-form-field>
+            <br>
+            gender:
+            
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="male" #gender >male</mat-radio-button>
+                <mat-radio-button value="female" #gender>female</mat-radio-button>
+              </mat-radio-group>
+              <br>
+            
+            <br>
+            
+            
+            <div class="example-container">
+              <mat-form-field>
+                <input matInput placeholder="Enter your email" #email [formControl]="mail" required>
+                <mat-error *ngIf="mail.invalid">{{getErrorMessage("email")}}</mat-error>
+              </mat-form-field>
+              </div>
+            <br>
+            
+            <br>
+            
+            image
+            <input type="file" (change)="readURL2($event)"> לא חובה
+            <br>
+            
+            <br>
+            
+            <input type="button" value="add" (click)='registerNewUser(fullName.value,Id.value,
+            userName.value,password.value,BDate.value,gender.value,email.value)'>
+            <br>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<br>
+
+<div class="modal fade" id="edit_worker" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         
+            <h1>edit workers</h1>
+            <div class="editWorkers">
+            <ul *ngFor="let w of workers">
+                    <div class="card" style="width: 18rem;">
+                        <li>
+                        <img class="card-img-top" [src]="w.img" width="40" height="40">
+                        <br>
+                        <input type="file" (change)="editWorkersImg($event,w.id)">
+                    </li>
+                            <div class="card-body">
+                
+                <li>
+                        first_name:  {{w.first_name}}
+                 <br>
+                
+                 <mat-form-field>
+                    <input matInput placeholder="edit" #wfirst_name required>
+                  
+                  </mat-form-field>
+                </li>
+                
+                <li>
+                        last_name:      {{w.last_name}}
+                        <br>
+                   
+                        
+                 <mat-form-field>
+                    <input matInput placeholder="edit" #wlast_name required>
+                  
+                  </mat-form-field>
+                       </li>
+                       <li>
+                            worker_id:     {{w.worker_id}}
+                            <br>
+                        
+                            <mat-form-field>
+                                <input matInput placeholder="edit" #wworker_id required>
+                              
+                              </mat-form-field>
+                           </li>
+                           <li>
+                                user_name:  {{w.user_name}}
+                                <br>
+                              
+                                <mat-form-field>
+                                    <input matInput placeholder="edit" #wuser_name required>
+                                  
+                                  </mat-form-field>
+                               </li>
+                               <li>
+                                    password:   {{w.password}}
+                                    <br>
+                           
+                                    <mat-form-field>
+                                        <input matInput placeholder="edit" #wpassword required>
+                                      
+                                      </mat-form-field>
+                                   </li>
+                                 
+                                       <br>
+                                       <button (click)="changeWorker(w,wfirst_name.value,wlast_name.value,
+                                       wworker_id.value,wuser_name.value,wpassword.value)">change</button>
+                                       <br>
+                                       <button (click)="deletWorker(w.id)">delet worker</button>
+                                    </div>
+                                </div>
+            </ul>
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="edit_user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         
+            <h1>edit users</h1>
+            <div class="editUsers">
+            <ul *ngFor="let u of users">
+                    <div class="card" style="width: 18rem;">
+                           
+                <li>
+                   <img class="card-img-top" [src]="u.img" width="40" height="40">
+                   <input type="file" (change)="editUsersImg($event,u.id)">
+               </li>
+               <div class="card-body">
+              <li>
+                  fullName {{u.fullName}}
+                  <br>
+                
+                  <mat-form-field>
+                    <input matInput placeholder="edit" #ufullname required>
+                  
+                  </mat-form-field>
+              </li>
+              <li>
+                  userId  {{u.userId}}
+                  <br>
+             
+                  <mat-form-field>
+                    <input matInput placeholder="edit" #uid required>
+                  
+                  </mat-form-field>
+              </li>
+              <li>
+                  userName {{u.userName}}
+                  <br>
+               
+                  <mat-form-field>
+                    <input matInput placeholder="edit" #uuserName required>
+                  
+                  </mat-form-field>
+              </li>
+              <li>
+                  password  {{u.password}}
+                  <br>
+               
+                  <mat-form-field>
+                    <input matInput placeholder="edit" #upassword required>
+                  
+                  </mat-form-field>
+              </li>
+              <li>
+                  Birth Date {{u.BDate}}
+            <br>
+                  <mat-form-field>
+                    <input matInput placeholder="edit" #ubdate required>
+                  
+                  </mat-form-field>
+              </li>
+              <li>
+                  gender {{u.gender}}
+                  <br>
+            
+                  <mat-form-field>
+                    <input matInput placeholder="edit" #ugender required>
+                  
+                  </mat-form-field>
+              </li>
+              <li>
+                  email  {{u.email}}
+                  <br>
+                  
+                  <mat-form-field>
+                    <input matInput placeholder="edit" #uemail required>
+                  
+                  </mat-form-field>
+              </li>
+            <button (click)="changeUser(u,ufullname.value,uid.value,uuserName.value,upassword.value,ubdate.value,ugender.value,uemail.value)">change</button>
+            <br>
+            <button (click)="deletUser(u.id)">delet user</button>
+            </div>
+            </div>
+            </ul>
+            </div>
+            <br>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="modal fade" id="edit_cars_availble" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+       
+            <h1>edit cars</h1>
+            <div class="editCars">
+            
+            <input type="text" [(ngModel)]="searchText">
+            
+            
+            <ul *ngFor="let i of cars_available_id | carsFilter : searchText">
+                    <div class="card" style="width: 18rem;">
+                <li>
+                    <img class="card-img-top" [src]="avilableCars[i].img" height="100" width="100" />
+                    <input type="file" (change)="editReadURL($event)">img:
+               </li>
+            
+               <div class="card-body">
+            
+            <li >
+            producer: {{avilableCars[i].producer}}
+            <br>
+            
+            
+            <mat-form-field>
+                <input matInput placeholder="edit" #Eproducer required>
+              
+              </mat-form-field>
+            </li>
+            <li>
+                model: {{avilableCars[i].model}}
+                <br>
+            
+            <mat-form-field>
+                <input matInput placeholder="edit" #Emodel required>
+              
+              </mat-form-field>
+            </li>
+            <li>
+                cost per day: {{avilableCars[i].cost_per_day}}
+                <br>
+            
+            <mat-form-field>
+                <input matInput placeholder="edit" #Ecost_per_day required>
+              
+              </mat-form-field>
+            </li>
+            <li>
+                financial_penalty: {{avilableCars[i].financial_penalty}}
+                <br>
+            
+            <mat-form-field>
+                <input matInput placeholder="edit" #Efinancial_penalty required>
+              
+              </mat-form-field>
+            </li>
+            <li>
+                production_year: {{avilableCars[i].production_year}}
+                <br>
+            
+            <mat-form-field>
+                <input matInput placeholder="edit" #Eproduction_year required>
+              
+              </mat-form-field>
+            </li>
+            <li>
+                gear: {{avilableCars[i].gear}}
+                <br>
+            
+            <mat-form-field>
+                <input matInput placeholder="edit" #Egear required>
+              
+              </mat-form-field>
+            </li>
+            <li>
+              car number: {{avilableCars[i].car_number}}
+              <br>
+            
+            <mat-form-field>
+                <input matInput placeholder="edit" #car_number required>
+              
+              </mat-form-field>
+            </li>
+            <li>
+                banking_adress: {{avilableCars[i].banking_adress}}
+                <br>
+            
+              <mat-form-field>
+                <input matInput placeholder="edit" #banking_adress required>
+              
+              </mat-form-field>
+              </li>
+              <li>
+                banking_longitued: {{avilableCars[i].banking_longitued}}
+                <br>
+            
+              <mat-form-field>
+                <input matInput placeholder="edit" #banking_longitued required>
+              
+              </mat-form-field>
+              </li>
+              <li>
+                banking_name: {{avilableCars[i].banking_name}}
+                <br>
+            
+              <mat-form-field>
+                <input matInput placeholder="edit" #banking_name required>
+              
+              </mat-form-field>
+              </li>
+            <br>
+            <BUtton (click)="editCar(i,Eproducer.value,Emodel.value,Ecost_per_day.value,Efinancial_penalty.value,
+            Eproduction_year.value,Egear.value,car_number.value,banking_adress.value,banking_longitued.value,banking_name.value)">change</BUtton>
+            <button (click)="deletCarAvailable(avilableCars[i].id)">delet car</button>
+            </div>
+            </div>
+            </ul>
+        
+            <br>
+            
+            
+
+
+        </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="modal fade" id="edit_cars_not" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+    
+
+            <h1>edit cars not available</h1>
+           
+            <ul *ngFor="let i of cars_not_id">
+                <div class="card" style="width: 18rem;">
+                   
+                    <li>
+                        <img class="card-img-top" [src]="cars[i].img" height="100" width="100" />
+                        <input type="file" (change)="editReadURL($event)">img:
+                   </li>
+                   <div class="card-body">
+                <li >
+                producer: {{cars[i].producer}}
+                <br>
+            
+                <mat-form-field>
+                    <input matInput placeholder="edit" #nEproducer required>
+                  
+                  </mat-form-field>
+                </li>
+                <li>
+                    model: {{cars[i].model}}
+                    <br>
+            
+                <mat-form-field>
+                    <input matInput placeholder="edit" #nEmodel required>
+                  
+                  </mat-form-field>
+                </li>
+                <li>
+                    cost per day: {{cars[i].cost_per_day}}
+                    <br>
+            
+                <mat-form-field>
+                    <input matInput placeholder="edit" #nEcost_per_day required>
+                  
+                  </mat-form-field>
+                </li>
+                <li>
+                    financial_penalty: {{cars[i].fainancial_penalty}}
+                    <br>
+            
+                <mat-form-field>
+                    <input matInput placeholder="edit" #nEfainancial_penalty required>
+                  
+                  </mat-form-field>
+                </li>
+                <li>
+                    production_year: {{cars[i].production_year}}
+                    <br>
+               
+                <mat-form-field>
+                    <input matInput placeholder="edit" #nEproduction_year required>
+                  
+                  </mat-form-field>
+                </li>
+                <li>
+                    gear: {{cars[i].gear}}
+                    <br>
+            
+                <mat-form-field>
+                    <input matInput placeholder="edit" #nEgear required>
+                  
+                  </mat-form-field>
+                </li>
+                <li>
+                  car number: {{cars[i].car_number}}
+                  <br>
+            
+                <mat-form-field>
+                    <input matInput placeholder="edit" #ncar_number required>
+                  
+                  </mat-form-field>
+                </li>
+                <li>
+                    car number: {{cars[i].banking_adress}}
+               <br>
+                  <mat-form-field>
+                    <input matInput placeholder="edit" #banking_adress required>
+                  
+                  </mat-form-field>
+                  </li>
+                  <li>
+                    car number: {{cars[i].banking_longitued}}
+                    <br>
+                
+                  <mat-form-field>
+                    <input matInput placeholder="edit" #banking_longitued required>
+                  
+                  </mat-form-field>
+                  </li>
+                  <li>
+                    car number: {{cars[i].banking_name}}
+                    <br>
+            
+                  <mat-form-field>
+                    <input matInput placeholder="edit" #banking_name required>
+                  
+                  </mat-form-field>
+                  </li>
+                <br>
+                <br>
+                <BUtton (click)="editCarNot(i,nEproducer.value,nEmodel.value,nEcost_per_day.value,nEfainancial_penalty.value,
+                nEproduction_year.value,nEgear.value,ncar_number.value,banking_adress.value,banking_longitued.value,banking_name.value)">change</BUtton>
+                <button (click)="deletCarNotAvailable(cars[i].id)">delet car</button>
+        
+           </div>
+          </div>
+            </ul>
+         
+            
+            </div>
+                <br>
+               
+                
+                <br>
+
+
+
+   
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    
+    
+    
+    <br>
+
+<br>
+
+
+
+
+
+<div class="modal fade" id="add_new_car" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+       
+
+            <h1>add car</h1>
+
+ <input type="text" #producer>producer:
+
+<br>
+
+ <input type="text" #model>model:
+
+<br>
+
+ <input type="text" #cost_per_day>cost_per_day:
+
+<br>
+
+ <input type="text" #financial_penalty> financial_penalty:
+
+<br>
+
+ <input type="text" #production_year>production_year:
+
+<br>
+
+ <input type="text" #gear>gear:
+
+<br>
+
+ <input type="file" (change)="readURL($event)">img:
+
+<br>
+<br>
+
+<button (click)="addCar(producer.value,model.value,cost_per_day.value,financial_penalty.value,
+production_year.value,gear.value)">add car</button>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="return_car" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+
+            <h1>return car</h1>
+
+
+<input type="text" [(ngModel)]="searchText">
+<div class="returnCar">
+<div *ngIf="cars">
+  <ul *ngFor="let car of cars | carsFilter : searchText">
+        <div class="card" style="width: 18rem;">
+      <li>
+          <img *ngIf="car.img" class="card-img-top" [src]="car.img" height="100" width="100" />
+     </li>
+     <div class="card-body">
+  <li>
+  producer: {{car.producer}}
+  </li>
+  <li>
+      model: {{car.model}}
+  </li>
+  <li>
+      cost per day: {{car.cost_per_day}}
+  </li>
+  <li>
+      financial_penalty: {{car.financial_penalty}}
+  </li>
+  <li>
+      production_year: {{car.production_year}}
+  </li>
+  <li>
+      gear: {{car.gear}}
+  </li>
+  <br>
+  <button (click)="returnCarNot(car)">return car</button>
+
+</div>
+</div>
+
+
+  </ul>
+
+</div>
+
+  <br>
+  <br>
+ 
+  </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="editOrders" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> orders </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    
+
+
+     
+        <ul *ngFor="let i of ordersIndex">
+            <div  class="card" style="width: 18rem;">
+        
+         <div class="card-body">
+        <li>
+        producer: {{orders[i].producer}}
+        <br>
+        <input matInput placeholder="edit" #oproducer>
+        </li>
+        <li>
+          model: {{orders[i].model}}
+          <br>
+        <input matInput placeholder="edit" #omodel>
+        </li>
+        <li>
+          cost per day: {{orders[i].cost_per_day}}
+          <br>
+        <input matInput placeholder="edit" #ocost_per_day>
+        </li>
+        <li>
+          financial_penalty: {{orders[i].financial_penalty}}
+          <br>
+        <input matInput placeholder="edit" #ofinancial_penalty>
+        </li>
+        <li>
+          production_year: {{orders[i].production_year}}
+          <br>
+        <input matInput placeholder="edit" #oproduction_year>
+        </li>
+        <li>
+          gear: {{orders[i].gear}}
+          <br>
+        <input matInput placeholder="edit" #ogaer>
+        </li>
+        
+        <li>
+            banking_address: {{orders[i].banking_adress}}
+            <br>
+        <input matInput placeholder="edit" #obanking_adress>
+          </li>
+        
+          <li>
+              banking_longitude: {{orders[i].banking_longitude}}
+              <br>
+        <input matInput placeholder="edit" #obanking_longitude>
+            </li>
+        
+            <li>
+                banking_name: {{orders[i].banking_name}}
+                <br>
+        <input matInput placeholder="edit" #obanking_name>
+              </li>
+              <li>
+                start_renting_date: {{orders[i].start_renting_date}}
+                <br>
+        <input matInput placeholder="edit" #ostart_renting_date>
+              </li>
+              <li>
+                actually returning date: {{orders[i].actually_returning_date}}
+                <br>
+        <input matInput placeholder="edit" #oactually_returning_date>
+              </li>
+              <li>
+                returning date: {{orders[i].returning_date}}
+                <br>
+        <input matInput placeholder="edit" #oreturning_date>
+              </li>
+            
+              <li>
+                car_number: {{orders[i].car_number}}
+                <br>
+        <input matInput placeholder="edit" #ocar_number>
+              </li>
+      
+              <li>
+                userId : {{orders[i].userId}}
+                <br>
+      
+              </li>
+      
+        <br>
+      
+        <button (click)="editOrders(i,oproducer.value,omodel.value,ocost_per_day.value,ofinancial_penalty.value,
+        oproduction_year.value,ogaer.value,obanking_adress.value,obanking_longitude.value,obanking_name.value,
+        ostart_renting_date.value,oactually_returning_date.value,oreturning_date.value,ocar_number.value)">change</button>
+
+        
+        <br>
+
+        <button (click)="deletOrder(orders[i].id)">delet order</button>
+        
+        </div>
+        </div>
+
+        
+        </ul>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <br>
+  <button (click)="logOut()">log out</button>
+
+</div>

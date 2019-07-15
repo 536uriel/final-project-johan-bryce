@@ -1,0 +1,81 @@
+<div style="padding:20%;">
+
+<h1>registeration:</h1>
+<br>
+<form>
+<div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your full name" #fullName required>
+    
+    </mat-form-field>
+    </div>
+<br>
+
+<div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your Id" #Id required>
+    
+    </mat-form-field>
+    </div>
+<br>
+
+
+
+<div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your userName" #userName required>
+    
+    </mat-form-field>
+    </div>
+<br>
+<br>
+<div class="password-container">
+    <mat-form-field>
+      <input matInput placeholder="Enter your password" #password [formControl]="pass" required [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+      <mat-error *ngIf="pass.invalid">{{getErrorMessage("password")}}</mat-error>
+    </mat-form-field>
+    </div>
+  <br>
+
+<mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a birth date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #BDate></mat-datepicker>
+  </mat-form-field>
+<br>
+gender:
+
+<mat-radio-group aria-label="Select an option">
+    <mat-radio-button value="male" #gender >male</mat-radio-button>
+    <mat-radio-button value="female" #gender>female</mat-radio-button>
+  </mat-radio-group>
+  <br>
+
+<br>
+
+
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" #email [formControl]="mail" required>
+    <mat-error *ngIf="mail.invalid">{{getErrorMessage("email")}}</mat-error>
+  </mat-form-field>
+  </div>
+<br>
+
+<br>
+
+image
+<input type="file" (change)="readURL($event)"> לא חובה
+<br>
+
+<br>
+
+<input type="button" value="register" (click)='registerNewUser(fullName.value,Id.value,
+userName.value,password.value,BDate.value,gender.value,email.value)'>
+<br>
+</form>
+
+</div>

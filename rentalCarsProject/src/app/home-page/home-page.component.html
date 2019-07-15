@@ -1,0 +1,75 @@
+<div class="container" style="padding:10%;">
+<h1>WELCOME TO RENTAL CARS!</h1>
+<br>
+
+<p style="color:darkslateblue;">
+here you can rent cars as you whant. awusom site! 
+<br> if you are new user, you need to register!
+ <br> if you already have a user - click on login button.
+ you can rent cars much as you whant and go to rent page!
+</p>
+
+
+
+
+<br>
+
+<br>
+
+
+<br>
+<br>
+<form>
+<mat-form-field>
+ <input matInput placeholder="search for vihcle by car number!" type="text" #searchText>
+</mat-form-field>
+</form>
+<br><br>
+
+<div *ngIf="cars" class="conVisitors">
+
+<ul *ngFor="let i of cars | carsFilter : searchText.value">
+        <div class="card"  style="width: 18rem;" style="background-color:gray;">
+
+        <img *ngIf="i.img" [src]="i.img" class="card-img-top"  height="100" width="100" />
+  
+   <div class="card-body">
+<li >
+producer: {{i.producer}}
+</li>
+<li>
+    model: {{i.model}}
+</li>
+<li>
+    cost per day: {{i.cost_per_day}}
+</li>
+<li>
+    financial_penalty: {{i.financial_penalty}}
+</li>
+<li>
+    production_year: {{i.production_year}}
+</li>
+<li>
+    gear: {{i.gear}}
+    <br>
+
+</li>
+<li>
+    car number {{i.car_number}}
+</li>
+<br>
+
+</div>
+</div>
+
+</ul>
+
+</div>
+
+<br>
+
+
+<br>
+
+
+</div>
